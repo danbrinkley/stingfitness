@@ -17,10 +17,10 @@ import {
 // --- Constants & Data ---
 
 const COLLECTIONS = [
-  { id: 1, name: 'Cardio Elite', image: '/images/cardio_elite.png' },
-  { id: 2, name: 'Strength Sculpt', image: '/images/strength.png' },
-  { id: 3, name: 'Recovery Studio', image: '/images/recovery_studio.png' },
-  { id: 4, name: 'Bespoke Series', image: '/images/bespoke_series.png' },
+  { id: 1, name: 'Cardio Elite', image: '/images/cardio_elite.webp' },
+  { id: 2, name: 'Strength Sculpt', image: '/images/strength.webp' },
+  { id: 3, name: 'Recovery Studio', image: '/images/recovery_studio.webp' },
+  { id: 4, name: 'Bespoke Series', image: '/images/bespoke_series.webp' },
 ];
 
 const PRODUCTS = [
@@ -29,29 +29,29 @@ const PRODUCTS = [
     name: 'Aura™ Performance Bench', 
     price: '$4,200', 
     desc: 'Hand-stitched leather and aerospace-grade aluminum.',
-    image: '/images/performance_bench.png' 
+    image: '/images/performance_bench.webp' 
   },
   { 
     id: 2, 
     name: 'Zenith™ Rower', 
     price: '$12,500', 
     desc: 'Sustainable walnut wood with fluid resistance technology.',
-    image: '/images/z_rower.png' 
+    image: '/images/z_rower.webp' 
   },
   { 
     id: 3, 
     name: 'Titan™ Dumbbell Set', 
     price: '$8,900', 
     desc: 'Precision-milled steel with custom grip textures.',
-    image: '/images/titan_dumbbell.png' 
+    image: '/images/titan_dumbbell.webp' 
   },
 ];
 
 const LIFESTYLE_GALLERY = [
-  '/images/lifestyle_0.png',
-  '/images/lifestyle_1.png',
-  '/images/lifestyle_2.png',
-  '/images/lifestyle_3.png',
+  '/images/lifestyle_0.webp',
+  '/images/lifestyle_1.webp',
+  '/images/lifestyle_2.webp',
+  '/images/lifestyle_3.webp',
 ];
 
 const VALUES = [
@@ -62,8 +62,8 @@ const VALUES = [
 ];
 
 const PROJECTS = [
-  { title: 'The Penthouse, Dubai', image: '/images/the_penthouse.png' },
-  { title: 'Aman Residences, NYC', image: '/images/nyc.jpg' },
+  { title: 'The Penthouse, Dubai', image: '/images/the_penthouse.webp' },
+  { title: 'Aman Residences, NYC', image: '/images/nyc.webp' },
 ];
 
 // --- Components ---
@@ -126,8 +126,9 @@ const Hero = () => (
   <section className="relative h-screen w-full overflow-hidden">
     <div className="absolute inset-0">
       <img 
-        src="/images/lifestyle_0.png" 
+        src="/images/lifestyle_0.webp" 
         alt="Luxury Gym" 
+        fetchPriority="high"
         className="w-full h-full object-cover"
         referrerPolicy="no-referrer"
       />
@@ -190,10 +191,10 @@ const BrandStory = () => (
     <div className="max-w-7xl mx-auto grid md:grid-template-columns md:grid-cols-2 gap-24 items-center">
       <div className="relative aspect-[4/5] overflow-hidden">
         <img 
-          src="/images/rack.png" 
+          src="/images/rack.webp" 
           alt="Craftsmanship" 
           className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
+          loading="lazy" decoding="async" referrerPolicy="no-referrer"
         />
         <div className="absolute -bottom-8 -right-8 bg-white p-12 hidden lg:block">
           <p className="text-4xl font-serif italic text-luxury-dark">"Precision is our only standard."</p>
@@ -243,7 +244,7 @@ const FeaturedCollection = () => (
               src={col.image} 
               alt={col.name} 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              referrerPolicy="no-referrer"
+              loading="lazy" decoding="async" referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
             <div className="absolute bottom-0 left-0 w-full p-8 text-white">
@@ -268,7 +269,7 @@ const ProductShowcase = () => (
                 src={product.image} 
                 alt={product.name} 
                 className="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
+                loading="lazy" decoding="async" referrerPolicy="no-referrer"
               />
             </div>
             <div className="flex justify-between items-start mb-4">
@@ -290,10 +291,10 @@ const DesignPhilosophy = () => (
   <section className="relative py-48 px-6 overflow-hidden">
     <div className="absolute inset-0 z-0">
       <img 
-        src="/images/design_philosophy_bg.png" 
+        src="/images/design_philosophy_bg.webp" 
         alt="Detail" 
         className="w-full h-full object-cover opacity-20"
-        referrerPolicy="no-referrer"
+        loading="lazy" decoding="async" referrerPolicy="no-referrer"
       />
     </div>
     <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -333,19 +334,19 @@ const LifestyleGallery = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="grid grid-cols-1 gap-8">
           <div className="aspect-[16/9] overflow-hidden">
-            <img src={LIFESTYLE_GALLERY[0]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+            <img src={LIFESTYLE_GALLERY[0]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div className="aspect-square overflow-hidden">
-              <img src={LIFESTYLE_GALLERY[1]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <img src={LIFESTYLE_GALLERY[1]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
             </div>
             <div className="aspect-square overflow-hidden">
-              <img src={LIFESTYLE_GALLERY[2]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+              <img src={LIFESTYLE_GALLERY[2]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
             </div>
           </div>
         </div>
         <div className="aspect-square md:aspect-auto overflow-hidden">
-          <img src={LIFESTYLE_GALLERY[3]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+          <img src={LIFESTYLE_GALLERY[3]} alt="Gym" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" referrerPolicy="no-referrer" />
         </div>
       </div>
     </div>
@@ -383,7 +384,7 @@ const FeaturedProjects = () => (
                 src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                referrerPolicy="no-referrer"
+                loading="lazy" decoding="async" referrerPolicy="no-referrer"
               />
             </div>
             <h3 className="text-2xl font-serif">{project.title}</h3>
